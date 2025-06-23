@@ -17,6 +17,7 @@
                 throw new IllegalArgumentException("Divider cannot be zero");
             }
             return a / b;
+
         }
     }
 

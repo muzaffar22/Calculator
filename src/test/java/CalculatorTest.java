@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import static org.testng.Assert.*;
@@ -41,22 +42,26 @@ public class CalculatorTest {
 
     @Test
     public void testSubtract() {
-        assertEquals(calculator.subtract(10, 5), 5, "This test failed");
+        assertEquals(calculator.subtract(10, 5), 5, "Subtraction test failed");
 
     }
 
     @Test
     public void testMultiply() {
-        assertEquals(calculator.multiply(3, 4), 12, "This test failed");
+        assertEquals(calculator.multiply(3, 4), 12, "Multiplication test failed");
     }
 
     @Test(dependsOnMethods = "testMultiply")
     public void testDivide() {
-        assertEquals(calculator.divide(10, 2), 5, "This test failed");
+        assertEquals(calculator.divide(10, 2), 5, "Division test failed");
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
+//    public void testDivideByZero() {
+//        calculator.divide(5, 0);
+//        }
     public void testDivideByZero() {
-        calculator.divide(5, 0);
+        new Calculator().divide(1, 10);
+        Assert.fail("Should be exception");
     }
-}
+    }
