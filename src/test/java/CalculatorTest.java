@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import static org.testng.Assert.*;
@@ -55,7 +56,11 @@ public class CalculatorTest {
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
+//    public void testDivideByZero() {
+//        calculator.divide(5, 0);
+//        }
     public void testDivideByZero() {
-        calculator.divide(5, 0);
+        new Calculator().divide(1, 10);
+        Assert.fail("Should be exception");
     }
 }
